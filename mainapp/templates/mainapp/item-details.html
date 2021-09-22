@@ -17,7 +17,7 @@
 {% block main %}
     {% if status %}
         <article>
-            <img src="{{ item.image.url }}" alt="{{ item.title }}" class="image_detail">
+            <img src="{{ item.image_url }}" alt="{{ item.title }}" class="image_detail">
             <section id="location">
                 <h2>{{ item.title }}</h2>
                 <address><span>{{ item.location.city }}, {{ item.location.country }}</span></address>

@@ -46,6 +46,7 @@ class Item(models.Model):
     century = models.CharField(max_length=10, choices=century_range(), default=parseCentury(centuryFromYear(datetime.date.today().year)))
     location = models.ForeignKey(Location, on_delete=models.CASCADE) # one-to-many / CASCADE or SET_NULL
     visitors = models.ManyToManyField(Visitor, blank=True, null=True)
+    image_url = models.CharField(max_length=500)
 
     def __str__(self):
         return f'{self.title} - {self.slug}'
