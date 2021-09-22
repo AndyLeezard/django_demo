@@ -2,6 +2,4 @@
 
 Built for educational & personal purposes
 
-## Note
-
-Despite its name, it's actually a full-stack demo project.
+Deployed via Heroku on URL : https://premier-app-django.herokuapp.com/mainapp/
