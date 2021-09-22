@@ -1,0 +1,67 @@
+{% extends 'mainapp/base/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{ item.title|default_if_none:"nothing" }}
+{% endblock %}
+
+{% block site_css %}
+    <link rel="stylesheet" href="{% static 'mainapp/styles/item-detail.css' %}">
+{% endblock %}
+
+{% block main_heading %}
+    {{ item.title|default_if_none:"nothing"  }}
+{% endblock %}
+
+{% block main %}
+    {% if status %}
+        <article>
+            <img src="{{ item.image.url }}" alt="{{ item.title }}" class="image_detail">
+            <section id="location">
+                <h2>{{ item.title }}</h2>
+                <address><span>{{ item.location.city }}, {{ item.location.country }}</span></address>
+            </section>
+            <section id="details">
+                <p>{{ item.description }}</p>
+                <footer>
+                    <p>Need more details? Please <a href="mailto:{{ item.organizer_email }}">contact the organizer</a> (but don't spam please ::))</p>
+                </footer>
+            </section>
+            <section id="registration">
+                <h2>Want to plan a trip to {{ item.title }}?</h2>
+                <form action="{% url 'detail' item.slug %}" method="POST">
+                    {% csrf_token  %}
+                    <ul>
+                        {{ form.as_ul }}
+                    </ul>
+                    <div id="registration-actions">
+                        <button>Book this trip</button>
+                    </div>
+                </form>
+                {% if visitors %}
+                <div>
+                    <h2>currently booked for:</h2>
+                    {% for j in visitors %}
+                        <p>{{ j.email }} ({{ j.date }})</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </section>
+            <section>
+                </br>
+                <a href="{% url 'basehtml' %}" class="btn">Return</a>
+            </section>
+        </article>
+    {% else %}
+    <article>
+        <section>
+            <h2>Error 404</h2>
+        </section>
+        <section>
+            </br>
+            <a href="{% url 'basehtml' %}" class="btn">Return</a>
+        </section>
+    </article>
+    {% endif %}
+{% endblock %}

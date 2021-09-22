@@ -1,0 +1,29 @@
+{% extends 'mainapp/base/base.html' %}
+
+{% load static %}
+
+{% block title %}You booked successfully!{% endblock %}
+
+{% block site_css %}
+<link rel="stylesheet" href="{% static 'mainapp/styles/booking-confirmation.css' %}">
+{% endblock %}
+
+{% block main_heading %}
+    Thanks for using my app.
+{% endblock %}
+
+{% block main %}
+<main  class="container">
+    <section id="confirmation">
+        <img src="{{ item.image.url }}" alt="">
+        <h2>You have successfully booked this trip!</h2>
+        <p>See you on the trip to <span style="font-weight: bold;">{{ item.title }}!</span></p>
+        <p>Got questions or can't make it? Please <a href="mailto:{{ item.organizer_email }}">contact the organizer</a> ahead of time!</p>
+        <div id="continue">
+        <p>Of course you can book more than one trip!</p>
+        <br/>
+        <p style="font-weight: bold;"><a href="/mainapp/" class="btn">Return to available trips</a></p>
+    </div>
+    </section>
+</main>
+{% endblock %}

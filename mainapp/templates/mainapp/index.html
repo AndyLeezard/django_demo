@@ -1,0 +1,31 @@
+{% extends 'mainapp/base/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Main App
+{% endblock %}
+
+{% block site_css %}
+    <link rel="stylesheet" href="{% static 'mainapp/styles/items.css' %}">
+{% endblock %}
+
+{% block main_heading %}
+    Django - demo app
+{% endblock %}
+
+{% block main %}
+    <section class="container">
+        <div class="listcontainer">
+            <p style="font-weight: 600; text-align: center;">Built by : Andy Lee</p>
+            <p style="padding-bottom: 10px; font-weight: 600; text-align: center;">SQLite Database example : World's greatest constructions</p>
+            {% if show_items %}
+                <ol>
+                    {% for i in items%}
+                        {% include 'mainapp/includes/item.html' with i=i %}
+                    {% endfor %}
+                </ol>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

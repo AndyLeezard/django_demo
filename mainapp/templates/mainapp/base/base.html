@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Fallback Title {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'mainapp/styles/base.css' %}">
+    {% block site_css %}{% endblock %}
+</head>
+<body class="app">
+    <header class="container">
+        <nav>
+            <h3><a href="/mainapp/" id="main-logo">{% block main_heading %} Fallback Heading {% endblock %}</a></h3>
+        </nav>
+    </header>
+    {% block main %}
+    {% endblock %}
+</body>
+</html>

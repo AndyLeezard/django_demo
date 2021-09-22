@@ -1,0 +1,17 @@
+<li class="item-item">
+    <article>
+        <div class="item-summary">
+            <div class="item-image">
+                <img src="{{ i.image.url }}" alt="{{ i.title }}">
+            </div>
+            <div class="item-details">
+                <h3>{{ i.title }}</h3>
+                <address>{{ i.address }}</address>
+                <p>{{ i.location.city }}, {{ i.location.country }}</p>
+            </div>
+        </div>
+        <div class="item-actions">
+            <a href="{% url 'detail' i.slug %}" class="btn">Learn more</a>
+        </div>
+    </article>
+</li>
