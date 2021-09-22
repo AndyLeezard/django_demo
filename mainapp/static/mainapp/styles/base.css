@@ -32,7 +32,7 @@ code {
 }
 
 .listcontainer {
-    max-height: 50vh;
+    max-height: 85vh;
     background-color: #D8CDD2;
     border-radius: 1rem;
     overflow: auto;
@@ -69,7 +69,7 @@ button:hover,
 }
 
 #main-logo {
-    font-size: 0.5rem;
+    font-size: 2rem;
     font-family: 'Roboto Slab', sans-serif;
     text-decoration: none;
     color: #FFF778;
